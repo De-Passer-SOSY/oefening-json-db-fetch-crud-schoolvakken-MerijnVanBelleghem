@@ -45,5 +45,20 @@ async function addVak() {
     } catch(error){
         console.error("Error addVakken: ", error);
     }
+}
+
+async function deleteVak(id) {
+    try {
+        let response = await fetch(`http://localhost:5688/vakken/${id}`, {
+            method: "DELETE"
+        })
+        if (response.ok) {
+            fetchVakken();
+        }
+    } catch(error){
+        console.error("Error deleteVak: ", error);
+    }
+}
+
 
 }

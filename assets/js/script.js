@@ -60,5 +60,19 @@ async function deleteVak(id) {
     }
 }
 
+function displayVakken(vakken) {
+    let lijst = document.querySelector("#vakkenList");
+    lijst.innerHTML = "";
 
+    vakken.forEach(vak =>{
+        let li = document.createElement("li");
+        li.textContent = vak.naam;
+
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Verwijder"
+        deleteButton.addEventListener("click", () => deleteVak(vak.id));
+
+        li.appendChild(deleteButton);
+        lijst.appendChild(li);
+    });
 }
